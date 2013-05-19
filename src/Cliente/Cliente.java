@@ -6,6 +6,7 @@
 package Cliente;
 
 import Cliente.logeocuenta;
+import LecturaDeArchivos.ClaseEscribirArchivo;
 import OperacionesCajero.Operaciones;
 import OperacionesCajero.OperacionesHelper;
 import java.awt.event.ActionEvent;
@@ -53,6 +54,7 @@ public class Cliente {
             MenuPrincipal x = new MenuPrincipal();
             x.setVisible(true);
             logeocuenta.setVisible(false);
+            new ClaseEscribirArchivo(new VariablesGlobales().direccionArchivo, datoUsuario);
         }else{
                JOptionPane.showMessageDialog(null, "La contraseá es incorrecta");
                logeocuenta.txtcuenta.setText("");

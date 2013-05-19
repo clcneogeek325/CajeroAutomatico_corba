@@ -33,6 +33,7 @@ public class ObjRemoto {
     }
 
     public static void main(String[] args) throws InvalidName, NotFound, CannotProceed, org.omg.CosNaming.NamingContextPackage.InvalidName {
+
         System.out.println(new ObjRemoto().ObjRemoto("admin",args));
         
     }

@@ -4,7 +4,9 @@
  */
 package Servidor;
 
+import BaseDatos.Actualizar;
 import BaseDatos.Consultar;
+import BaseDatos.Insertar;
 import OperacionesCajero.Operaciones;
 import OperacionesCajero.OperacionesHelper;
 import OperacionesCajero.OperacionesPOA;
@@ -58,6 +60,7 @@ public class Servidor extends OperacionesPOA {
     }
 
     public static void main(String[] args) throws InvalidName, AdapterInactive, ServantNotActive, WrongPolicy, org.omg.CosNaming.NamingContextPackage.InvalidName, NotFound, CannotProceed {
+        System.out.println("Servidor Iniciado");
         ORB orb = ORB.init(args, null);
         POA rootpoa = POAHelper.narrow(orb.resolve_initial_references("RootPOA"));
         rootpoa.the_POAManager().activate();
@@ -72,18 +75,40 @@ public class Servidor extends OperacionesPOA {
         orb.run();
     }
 
-    public void retirar(String id_usuario, int cantidad) {
-      
+    public String retirar(String nombre_usuario, int cantidad) {
+       ResultSet resultadoSaldo = null;
+        Consultar consultaSQL = new Consultar();
+        resultadoSaldo = consultaSQL.Consultar("select capital from usuarios where usuario = 'admin'");
+        int saldo =0;
+        try {
+            while (resultadoSaldo.next()) {
+                saldo  = resultadoSaldo.getInt(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Servidor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        String mensaje="";
+        if (saldo - cantidad < 0) {
+            mensaje="No se puede retirar efectivo por que su saldo es insuficiente";
+            
+        }else{
+            new Actualizar("update usuarios set capital=capital-"+cantidad+" where usuario='"+nombre_usuario+"'");
+            mensaje ="el deposito se ha llevado acabo correctamente , asu cuenta se ha depositado "+cantidad+" pesos a tu cuenta";
+        }
+
+        return mensaje;
     }
 
-    public void depositar(String id_usuario, int cantidad) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void depositar(String nombre_usuario, int cantidad) {
+           new Actualizar("update usuarios set capital=capital+"+cantidad+" where usuario='"+nombre_usuario+"'");
+
     }
 
     public int consultar(String nombre_usuario) {
         ResultSet resultadoSaldo = null;
         Consultar consultaSQL = new Consultar();
-        resultadoSaldo = consultaSQL.Consultar("select capital from usuarios where usuario = 'admin'");
+        resultadoSaldo = consultaSQL.Consultar("select capital from usuarios where usuario = '"+nombre_usuario+"'");
         int saldo =0;
         try {
             while (resultadoSaldo.next()) {

@@ -1,5 +1,8 @@
 package Cliente;
 
+import LecturaDeArchivos.ClaseEscribirArchivo;
+import LecturaDeArchivos.LecturaDeARchivo;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -15,11 +18,13 @@ package Cliente;
  *
  * @author Piscis
  */
-public class consulta extends javax.swing.JFrame {
+public class Saldo extends javax.swing.JFrame {
 
     /** Creates new form consulta */
-    public consulta() {
+    public Saldo() {
         initComponents();
+        txt_nombre_usuario.setText(new LecturaDeARchivo().LecturaDeARchivo(new VariablesGlobales().direccionArchivo));
+  
     }
 
     /** This method is called from within the constructor to
@@ -36,6 +41,8 @@ public class consulta extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         cmdsiguiente = new javax.swing.JButton();
         rbtn_acptarTicket = new javax.swing.JRadioButton();
+        jLabel3 = new javax.swing.JLabel();
+        txt_nombre_usuario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,12 +50,12 @@ public class consulta extends javax.swing.JFrame {
         jLabel1.setText("Saldo Actual:");
 
         txtsaldo.setEditable(false);
-        txtsaldo.setFont(new java.awt.Font("Ubuntu", 3, 24)); // NOI18N
+        txtsaldo.setFont(new java.awt.Font("Ubuntu", 3, 24));
 
         jLabel2.setFont(new java.awt.Font("Ubuntu", 3, 24));
         jLabel2.setText("Imprimir Ticket");
 
-        cmdsiguiente.setFont(new java.awt.Font("Ubuntu", 3, 24)); // NOI18N
+        cmdsiguiente.setFont(new java.awt.Font("Ubuntu", 3, 24));
         cmdsiguiente.setText("Siguiente");
         cmdsiguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,6 +66,10 @@ public class consulta extends javax.swing.JFrame {
         rbtn_acptarTicket.setFont(new java.awt.Font("Ubuntu", 3, 24));
         rbtn_acptarTicket.setText("Aceptar");
 
+        jLabel3.setText("Usuario :");
+
+        txt_nombre_usuario.setText("nombre_usuario");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -66,24 +77,35 @@ public class consulta extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(txtsaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(rbtn_acptarTicket, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(272, 272, 272)
-                        .addComponent(cmdsiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cmdsiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(txtsaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(rbtn_acptarTicket, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(117, 117, 117)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(57, 57, 57)
+                        .addComponent(txt_nombre_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txt_nombre_usuario))
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
@@ -95,7 +117,7 @@ public class consulta extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(rbtn_acptarTicket)))
-                .addGap(60, 60, 60)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cmdsiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(14, Short.MAX_VALUE))
         );
@@ -114,16 +136,20 @@ public class consulta extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new consulta().setVisible(true);
+                new Saldo().setVisible(true);
             }
         });
+
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton cmdsiguiente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     public javax.swing.JRadioButton rbtn_acptarTicket;
+    public javax.swing.JLabel txt_nombre_usuario;
     public javax.swing.JTextField txtsaldo;
     // End of variables declaration//GEN-END:variables
 

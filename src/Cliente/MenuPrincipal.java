@@ -1,5 +1,14 @@
 package Cliente;
 
+import AgregandoSaldo.Aniadir;
+import LecturaDeArchivos.LecturaDeARchivo;
+import RetirandoEfectivo.RetirandoDinero;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.omg.CORBA.ORBPackage.InvalidName;
+import org.omg.CosNaming.NamingContextPackage.CannotProceed;
+import org.omg.CosNaming.NamingContextPackage.NotFound;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -16,10 +25,12 @@ package Cliente;
  * @author Piscis
  */
 public class MenuPrincipal extends javax.swing.JFrame {
+    private String[] args;
 
     /** Creates new form cajero */
     public MenuPrincipal() {
         initComponents();
+        txt_nombreUsuario.setText(new LecturaDeARchivo().LecturaDeARchivo(new VariablesGlobales().direccionArchivo));
     }
 
     /** This method is called from within the constructor to
@@ -35,6 +46,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         cmdretirar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btn_aniadir = new javax.swing.JButton();
+        txt_nombreUsuario = new javax.swing.JLabel();
+        txt_cerrarSesion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,12 +65,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Bienvenido");
+        jLabel1.setText("Bienvenido :");
 
         btn_aniadir.setText("Agregar Efectivo");
         btn_aniadir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_aniadirActionPerformed(evt);
+            }
+        });
+
+        txt_nombreUsuario.setText("nombre del usuario");
+
+        txt_cerrarSesion.setText("Cerrar Cesion");
+        txt_cerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_cerrarSesionActionPerformed(evt);
             }
         });
 
@@ -77,42 +99,88 @@ public class MenuPrincipal extends javax.swing.JFrame {
                         .addGap(70, 70, 70)
                         .addComponent(cmdretirar, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(261, 261, 261)
+                        .addComponent(txt_nombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(70, 70, 70)
-                        .addComponent(btn_aniadir, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(86, Short.MAX_VALUE))
+                        .addComponent(btn_aniadir, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(315, 315, 315)
+                        .addComponent(txt_cerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txt_nombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addComponent(cmdconsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21)
                 .addComponent(cmdretirar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(btn_aniadir, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txt_cerrarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdconsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdconsultarActionPerformed
-     ConultarSaldo x = new ConultarSaldo();
-
+      ConultarSaldo x = new ConultarSaldo();
+        try {
+            x.main(args);
+        } catch (InvalidName ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NotFound ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (CannotProceed ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (org.omg.CosNaming.NamingContextPackage.InvalidName ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
        this.setVisible(false);
 
     }//GEN-LAST:event_cmdconsultarActionPerformed
 
     private void cmdretirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdretirarActionPerformed
-       new retito_Efectivo().setVisible(true);
+        try {
+            new RetirandoDinero().main(args);
+        } catch (InvalidName ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NotFound ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (CannotProceed ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (org.omg.CosNaming.NamingContextPackage.InvalidName ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
        this.setVisible(false);
     }//GEN-LAST:event_cmdretirarActionPerformed
 
     private void btn_aniadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_aniadirActionPerformed
-       
+        this.setVisible(false);
+        Aniadir x = new Aniadir();
+        try {
+            x.main(args);
+        } catch (InvalidName ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NotFound ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (CannotProceed ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (org.omg.CosNaming.NamingContextPackage.InvalidName ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_aniadirActionPerformed
+
+    private void txt_cerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cerrarSesionActionPerformed
+         System.exit(0);
+    }//GEN-LAST:event_txt_cerrarSesionActionPerformed
 
     /**
     * @param args the command line arguments
@@ -130,6 +198,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton cmdconsultar;
     private javax.swing.JButton cmdretirar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton txt_cerrarSesion;
+    public javax.swing.JLabel txt_nombreUsuario;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -6,7 +6,8 @@
 package Cliente;
 
 
-import Cliente.consulta;
+import Cliente.Saldo;
+import LecturaDeArchivos.LecturaDeARchivo;
 import OperacionesCajero.Operaciones;
 import OperacionesCajero.OperacionesHelper;
 
@@ -23,12 +24,15 @@ import org.omg.CosNaming.NamingContextPackage.NotFound;
  */
 public class ConultarSaldo {
    public static String nombreUsuario="";
-    static consulta gui_consulta;
+   static String direccionArchivo = new VariablesGlobales().direccionArchivo;
+   static Saldo gui_consulta;
     
 
     public static void main(String[] args) throws InvalidName, NotFound, CannotProceed, org.omg.CosNaming.NamingContextPackage.InvalidName {
-        gui_consulta = new consulta();
+        gui_consulta = new Saldo();
         gui_consulta.setVisible(true);
+
+        String nombreUsuario = new LecturaDeARchivo().LecturaDeARchivo(direccionArchivo);
 
         ORB orb=ORB.init(args, null);
         org.omg.CORBA.Object objRef=orb.resolve_initial_references("NameService");

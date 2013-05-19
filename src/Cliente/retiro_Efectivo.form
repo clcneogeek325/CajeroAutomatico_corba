@@ -17,7 +17,6 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,127,0,0,1,-59"/>
   </AuxValues>
 
   <Layout>
@@ -31,34 +30,41 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="12" pref="12" max="12" attributes="0"/>
-                      <Component id="cmd5001" min="-2" pref="150" max="-2" attributes="0"/>
+                      <Component id="btn_100" min="-2" pref="150" max="-2" attributes="0"/>
                       <EmptySpace min="108" pref="108" max="108" attributes="0"/>
-                      <Component id="cmd5005" min="-2" pref="150" max="-2" attributes="0"/>
+                      <Component id="btn_300" min="-2" pref="150" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="10" pref="10" max="10" attributes="0"/>
-                      <Component id="cmd5002" min="-2" pref="150" max="-2" attributes="0"/>
+                      <Component id="btn_500" min="-2" pref="150" max="-2" attributes="0"/>
                       <EmptySpace min="110" pref="110" max="110" attributes="0"/>
-                      <Component id="cmd5004" min="-2" pref="150" max="-2" attributes="0"/>
+                      <Component id="btn_1000" min="-2" pref="150" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="10" pref="10" max="10" attributes="0"/>
-                      <Component id="cmd5003" min="-2" pref="150" max="-2" attributes="0"/>
+                      <Component id="btn_1500" min="-2" pref="150" max="-2" attributes="0"/>
                       <EmptySpace min="110" pref="110" max="110" attributes="0"/>
-                      <Component id="cmd5000" min="-2" pref="150" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="30" pref="30" max="30" attributes="0"/>
-                      <Component id="jLabel2" min="-2" pref="180" max="-2" attributes="0"/>
-                      <EmptySpace min="10" pref="10" max="10" attributes="0"/>
-                      <Component id="cmdotracantidad" min="-2" pref="120" max="-2" attributes="0"/>
+                      <Component id="btn_3000" min="-2" pref="150" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="280" max="-2" attributes="0"/>
-                      <Component id="cmdcancelar" min="-2" pref="160" max="-2" attributes="0"/>
+                      <EmptySpace min="30" pref="30" max="30" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="txt_nombreUsuario" min="-2" pref="136" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
+                              <Component id="txt_siguinte" min="-2" pref="160" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel2" min="-2" pref="180" max="-2" attributes="0"/>
+                              <EmptySpace min="10" pref="10" max="10" attributes="0"/>
+                              <Component id="txt_otracantidad" min="-2" pref="120" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="13" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -69,31 +75,37 @@
               <Component id="jLabel1" min="-2" pref="20" max="-2" attributes="0"/>
               <EmptySpace min="15" pref="15" max="15" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="cmd5001" min="-2" pref="60" max="-2" attributes="0"/>
+                  <Component id="btn_100" min="-2" pref="60" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <EmptySpace min="5" pref="5" max="5" attributes="0"/>
-                      <Component id="cmd5005" min="-2" pref="60" max="-2" attributes="0"/>
+                      <Component id="btn_300" min="-2" pref="60" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="cmd5002" min="-2" pref="60" max="-2" attributes="0"/>
-                  <Component id="cmd5004" min="-2" pref="60" max="-2" attributes="0"/>
+                  <Component id="btn_500" min="-2" pref="60" max="-2" attributes="0"/>
+                  <Component id="btn_1000" min="-2" pref="60" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="10" pref="10" max="10" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="cmd5003" min="-2" pref="60" max="-2" attributes="0"/>
-                  <Component id="cmd5000" min="-2" pref="60" max="-2" attributes="0"/>
+                  <Component id="btn_1500" min="-2" pref="60" max="-2" attributes="0"/>
+                  <Component id="btn_3000" min="-2" pref="60" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="30" pref="30" max="30" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel2" min="-2" pref="40" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <EmptySpace min="1" pref="1" max="1" attributes="0"/>
-                      <Component id="cmdotracantidad" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="txt_otracantidad" min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-              <Component id="cmdcancelar" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="txt_siguinte" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_nombreUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -108,13 +120,16 @@
         <Property name="text" type="java.lang.String" value="Elegir Cantidad"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="cmd5000">
+    <Component class="javax.swing.JButton" name="btn_3000">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Ubuntu" size="24" style="3"/>
         </Property>
         <Property name="text" type="java.lang.String" value="$3000"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
@@ -124,38 +139,50 @@
         <Property name="text" type="java.lang.String" value="Otra Cantidad:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="cmdotracantidad">
+    <Component class="javax.swing.JTextField" name="txt_otracantidad">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Ubuntu" size="24" style="3"/>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="cmdcancelar">
+    <Component class="javax.swing.JButton" name="txt_siguinte">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Ubuntu" size="24" style="3"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Siguiente"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="cmd5001">
+    <Component class="javax.swing.JButton" name="btn_100">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Ubuntu" size="24" style="3"/>
         </Property>
         <Property name="text" type="java.lang.String" value="$100"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="cmd5002">
+    <Component class="javax.swing.JButton" name="btn_500">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Ubuntu" size="24" style="3"/>
         </Property>
         <Property name="text" type="java.lang.String" value="$500"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="cmd5003">
+    <Component class="javax.swing.JButton" name="btn_1500">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Ubuntu" size="24" style="3"/>
@@ -163,24 +190,46 @@
         <Property name="text" type="java.lang.String" value="$1500"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmd5003ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_1500ActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="cmd5004">
+    <Component class="javax.swing.JButton" name="btn_1000">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Ubuntu" size="24" style="3"/>
         </Property>
         <Property name="text" type="java.lang.String" value="$1000"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="cmd5005">
+    <Component class="javax.swing.JButton" name="btn_300">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Ubuntu" size="24" style="3"/>
         </Property>
         <Property name="text" type="java.lang.String" value="$300"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Usuario:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="txt_nombreUsuario">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="nombre_usuario"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
