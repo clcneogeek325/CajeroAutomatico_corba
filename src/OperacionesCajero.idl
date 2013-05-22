@@ -7,6 +7,8 @@ module OperacionesCajero{
 	        void depositar(in string id_usuario , in long  cantidad );
 	        
 	        long  consultar(in string id_usuario );
+	        
+	        void mensaje(in string nombreUsuario);
 	};
 	
 };

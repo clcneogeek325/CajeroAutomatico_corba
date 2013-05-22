@@ -109,7 +109,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Ubuntu" size="24" style="3"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Siguinte"/>
+        <Property name="text" type="java.lang.String" value="Siguiente"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

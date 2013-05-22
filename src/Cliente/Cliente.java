@@ -54,6 +54,7 @@ public class Cliente {
             MenuPrincipal x = new MenuPrincipal();
             x.setVisible(true);
             logeocuenta.setVisible(false);
+            objeto.mensaje(datoUsuario);
             new ClaseEscribirArchivo(new VariablesGlobales().direccionArchivo, datoUsuario);
         }else{
                JOptionPane.showMessageDialog(null, "La contraseá es incorrecta");

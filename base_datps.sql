@@ -27,8 +27,11 @@ CREATE TABLE `usuarios` (
   `usuario` varchar(30) NOT NULL,
   `contrasenia` varchar(30) NOT NULL,
   `capital` int(10) NOT NULL,
+  `apellidos` varchar(30) NOT NULL,
+  `nombre` varchar(30) NOT NULL,
+  `direccion` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +40,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'admin','admin',6903);
+INSERT INTO `usuarios` VALUES (1,'admin','admin',3067,'','',''),(2,'neogeek','12345',100,'hdez','gnome','5 oct'),(3,'neogeek','12345',100,'hdez','mario','5 de oct');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-05-19 16:47:41
+-- Dump completed on 2013-05-22  0:29:12

@@ -7,13 +7,19 @@ package Servidor;
 import BaseDatos.Actualizar;
 import BaseDatos.Consultar;
 import BaseDatos.Insertar;
+import Fecha.ObtFecha;
+import Fecha.ObtHora;
 import OperacionesCajero.Operaciones;
 import OperacionesCajero.OperacionesHelper;
 import OperacionesCajero.OperacionesPOA;
+import com.sun.xml.internal.ws.api.streaming.XMLStreamReaderFactory.Default;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 import org.omg.CORBA.ORB;
 import org.omg.CORBA.ORBPackage.InvalidName;
 import org.omg.CosNaming.NameComponent;
@@ -32,8 +38,13 @@ import org.omg.PortableServer.POAPackage.WrongPolicy;
  * @author mackena91
  */
 public class Servidor extends OperacionesPOA {
+static pantallaadmin gui_admin = new pantallaadmin();
 
-    public boolean respuesta(String usuario, String contrasenia) {
+DefaultTableModel modeloTabla = (DefaultTableModel) gui_admin.tablaEntradas.getModel();
+
+Object datos[]=new Object[4];
+
+public boolean respuesta(String usuario, String contrasenia) {
         boolean resutlado = false;
         ResultSet resultadosUsuarios = null;
         Consultar consultandoUusarios = new Consultar();
@@ -60,6 +71,36 @@ public class Servidor extends OperacionesPOA {
     }
 
     public static void main(String[] args) throws InvalidName, AdapterInactive, ServantNotActive, WrongPolicy, org.omg.CosNaming.NamingContextPackage.InvalidName, NotFound, CannotProceed {
+
+  gui_admin.setVisible(true);
+
+        gui_admin.btnRegistrar.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+      String nombre, apellidos,direccion, nomCuenta,saldoInicial,nip;
+      nombre =gui_admin.txtnombre.getText();
+      apellidos =gui_admin.txtapellidos.getText();
+      direccion =gui_admin.txtdireccion.getText();
+      nomCuenta =gui_admin.txtNombrecuenta.getText();
+      saldoInicial =gui_admin.txtsaldo.getText();
+      nip =gui_admin.txtnip.getText();
+
+      String consultaSQL = "insert into usuarios (usuario,contrasenia,capital,apellidos,nombre,direccion) values ('"+
+              nomCuenta+"','"
+              +nip+"',"
+              +saldoInicial+",'"
+              +apellidos+"','"
+              +nombre+"','"
+              +direccion+"')";
+                System.out.println("Paso de la insercion");
+                System.out.println(consultaSQL);
+                new Insertar(consultaSQL);
+
+            }
+        });
+
+  
         System.out.println("Servidor Iniciado");
         ORB orb = ORB.init(args, null);
         POA rootpoa = POAHelper.narrow(orb.resolve_initial_references("RootPOA"));
@@ -73,6 +114,7 @@ public class Servidor extends OperacionesPOA {
         NameComponent path[] = ncRef.to_name(nombre);
         ncRef.rebind(path, href);
         orb.run();
+
     }
 
     public String retirar(String nombre_usuario, int cantidad) {
@@ -94,7 +136,7 @@ public class Servidor extends OperacionesPOA {
             
         }else{
             new Actualizar("update usuarios set capital=capital-"+cantidad+" where usuario='"+nombre_usuario+"'");
-            mensaje ="el deposito se ha llevado acabo correctamente , asu cuenta se ha depositado "+cantidad+" pesos a tu cuenta";
+            mensaje ="la transaccion se ha llevado acabo correctamente , de su cuenta se ha retirado "+cantidad+" pesos a tu cuenta";
         }
 
         return mensaje;
@@ -119,5 +161,29 @@ public class Servidor extends OperacionesPOA {
         }
 
         return saldo;
+    }
+
+    public void mensaje(String nombreUsuario) {
+        System.out.println(nombreUsuario);
+        ResultSet resultados  = new Consultar().Consultar("select id from usuarios where usuario='"+nombreUsuario+"'");
+        try {
+            while (resultados.next()) {
+                datos[0]=resultados.getObject(1)+"";
+            }
+ 
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Servidor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      datos[1]=nombreUsuario;
+
+      ObtFecha fecha = new ObtFecha();
+      datos[2]=fecha.ObtFecha();
+
+      ObtHora hora = new ObtHora();
+      datos[3]=hora.ObtHora();
+
+      modeloTabla.addRow(datos);
+
     }
 }

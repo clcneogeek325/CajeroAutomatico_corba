@@ -49,7 +49,7 @@ public class AniadirEfectivo extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Ubuntu", 3, 24));
         jLabel2.setText("$");
 
-        txt_cantidadAniadir.setFont(new java.awt.Font("Ubuntu", 3, 24)); // NOI18N
+        txt_cantidadAniadir.setFont(new java.awt.Font("Ubuntu", 3, 24));
         txt_cantidadAniadir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_cantidadAniadirActionPerformed(evt);
@@ -57,7 +57,7 @@ public class AniadirEfectivo extends javax.swing.JFrame {
         });
 
         txt_sisguinte.setFont(new java.awt.Font("Ubuntu", 3, 24));
-        txt_sisguinte.setText("Siguinte");
+        txt_sisguinte.setText("Siguiente");
 
         jLabel3.setText("Usuario :");
 

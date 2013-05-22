@@ -2,7 +2,7 @@ module OperacionesCajero{
 	interface Operaciones{
 		boolean respuesta(in string usuario,in string contrasenia);
 	
-	        void retirar (in string id_usuario , in long  cantidad );
+	        string retirar (in string id_usuario , in long  cantidad );
 	        
 	        void depositar(in string id_usuario , in long  cantidad );
 	        

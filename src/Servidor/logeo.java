@@ -42,35 +42,35 @@ public class logeo extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 24));
         jLabel1.setText("Principal");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(220, 10, 118, 29);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 3, 24));
         jLabel2.setText("Usuario:");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(70, 70, 140, 30);
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 3, 24));
         jLabel3.setText("Contraseña:");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(70, 130, 170, 30);
 
-        txtusuario.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        txtusuario.setFont(new java.awt.Font("Tahoma", 3, 24));
         getContentPane().add(txtusuario);
         txtusuario.setBounds(240, 60, 230, 40);
 
-        txtcontrasenia.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        txtcontrasenia.setFont(new java.awt.Font("Tahoma", 3, 24));
         getContentPane().add(txtcontrasenia);
         txtcontrasenia.setBounds(240, 120, 230, 40);
 
-        cmdentrar.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        cmdentrar.setFont(new java.awt.Font("Tahoma", 3, 24));
         cmdentrar.setText("Entrar");
         getContentPane().add(cmdentrar);
         cmdentrar.setBounds(290, 200, 130, 60);
 
-        cmdentrar1.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        cmdentrar1.setFont(new java.awt.Font("Tahoma", 3, 24));
         cmdentrar1.setText("Entrar");
         getContentPane().add(cmdentrar1);
         cmdentrar1.setBounds(120, 200, 130, 60);
