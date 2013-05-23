@@ -38,7 +38,7 @@ import org.omg.PortableServer.POAPackage.WrongPolicy;
  * @author mackena91
  */
 public class Servidor extends OperacionesPOA {
-static pantallaadmin gui_admin = new pantallaadmin();
+ static pantallaadmin gui_admin = new pantallaadmin();
 
 DefaultTableModel modeloTabla = (DefaultTableModel) gui_admin.tablaEntradas.getModel();
 
@@ -73,32 +73,6 @@ public boolean respuesta(String usuario, String contrasenia) {
     public static void main(String[] args) throws InvalidName, AdapterInactive, ServantNotActive, WrongPolicy, org.omg.CosNaming.NamingContextPackage.InvalidName, NotFound, CannotProceed {
 
   gui_admin.setVisible(true);
-
-        gui_admin.btnRegistrar.addActionListener(new ActionListener() {
-
-            public void actionPerformed(ActionEvent e) {
-
-      String nombre, apellidos,direccion, nomCuenta,saldoInicial,nip;
-      nombre =gui_admin.txtnombre.getText();
-      apellidos =gui_admin.txtapellidos.getText();
-      direccion =gui_admin.txtdireccion.getText();
-      nomCuenta =gui_admin.txtNombrecuenta.getText();
-      saldoInicial =gui_admin.txtsaldo.getText();
-      nip =gui_admin.txtnip.getText();
-
-      String consultaSQL = "insert into usuarios (usuario,contrasenia,capital,apellidos,nombre,direccion) values ('"+
-              nomCuenta+"','"
-              +nip+"',"
-              +saldoInicial+",'"
-              +apellidos+"','"
-              +nombre+"','"
-              +direccion+"')";
-                System.out.println("Paso de la insercion");
-                System.out.println(consultaSQL);
-                new Insertar(consultaSQL);
-
-            }
-        });
 
   
         System.out.println("Servidor Iniciado");
@@ -147,7 +121,8 @@ public boolean respuesta(String usuario, String contrasenia) {
 
     }
 
-    public int consultar(String nombre_usuario) {
+    public int consultar(String nombre_usuario){
+
         ResultSet resultadoSaldo = null;
         Consultar consultaSQL = new Consultar();
         resultadoSaldo = consultaSQL.Consultar("select capital from usuarios where usuario = '"+nombre_usuario+"'");
@@ -186,4 +161,34 @@ public boolean respuesta(String usuario, String contrasenia) {
       modeloTabla.addRow(datos);
 
     }
+
+    public boolean consultarAdmin(String nombre_usuario,String contrasenia) {
+        ResultSet resultadoSaldo = null;
+        Consultar consultaSQL = new Consultar();
+        resultadoSaldo = consultaSQL.Consultar("select usuario from usuarios where contrasenia = '"+contrasenia+"'");
+       boolean respuesta=false;
+        String admin ="";
+        try {
+            while (resultadoSaldo.next()) {
+                admin  = resultadoSaldo.getString(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Servidor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if (!admin.equals("")) {
+            respuesta=true;
+        }
+
+
+        return true;
+    }
+
+    public String regristrar(String nombre, String apellidos, String direccion, String nombreCuenta, String saldoInicial, String nip) {
+        new Insertar("insert into usuarios (usuario,contrasenia,capital,apellidos,nombre,direccion) values ('"
+                +nombreCuenta+"','"+nip+"',1000,'"+apellidos+"','"+nombreCuenta+"','"+direccion+"')");
+
+        return "El registro se llevo a cabo correctamente";
+    }
+
+   
 }

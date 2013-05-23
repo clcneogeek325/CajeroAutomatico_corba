@@ -5,12 +5,15 @@
 
 package Cliente;
 
+import AgregandoSaldo.Aniadir;
 import Cliente.logeocuenta;
 import LecturaDeArchivos.ClaseEscribirArchivo;
 import OperacionesCajero.Operaciones;
 import OperacionesCajero.OperacionesHelper;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.omg.CORBA.ORB;
 import org.omg.CORBA.ORBPackage.InvalidName;
@@ -30,7 +33,7 @@ public class Cliente {
 
 
 
-    public static void main(String[] args) throws InvalidName, NotFound, CannotProceed, org.omg.CosNaming.NamingContextPackage.InvalidName {
+    public static void main(final String[] args) throws InvalidName, NotFound, CannotProceed, org.omg.CosNaming.NamingContextPackage.InvalidName {
         logeocuenta = new logeocuenta();
         logeocuenta.setVisible(true);
 
@@ -39,6 +42,44 @@ public class Cliente {
         NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
          String nombre = "cajero";
         final Operaciones  objeto=OperacionesHelper.narrow(ncRef.resolve_str(nombre));
+
+
+        logeocuenta.btn_depositar.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                logeocuenta.setVisible(false);
+                
+                try {
+                    new Aniadir().main(args);
+                } catch (InvalidName ex) {
+                    Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (NotFound ex) {
+                    Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (CannotProceed ex) {
+                    Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (org.omg.CosNaming.NamingContextPackage.InvalidName ex) {
+                    Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+
+        logeocuenta.cmdGerente.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    new LogeoAdministradorClase().main(args);
+                } catch (InvalidName ex) {
+                    Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (NotFound ex) {
+                    Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (CannotProceed ex) {
+                    Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (org.omg.CosNaming.NamingContextPackage.InvalidName ex) {
+                    Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                logeocuenta.dispose();
+            }
+        });
 
         logeocuenta.cmdentrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

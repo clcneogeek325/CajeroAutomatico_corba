@@ -5,6 +5,7 @@
 
 package MetodoObjetoRemoto;
 
+import Cliente.LogeoAministardor;
 import OperacionesCajero.Operaciones;
 import OperacionesCajero.OperacionesHelper;
 import org.omg.CORBA.ARG_IN;
@@ -20,22 +21,31 @@ import org.omg.CosNaming.NamingContextPackage.NotFound;
  * @author neogeek
  */
 public class ObjRemoto {
+static Operaciones  objeto;
 
-    public Operaciones ObjRemoto(String nombre,String[] args) throws InvalidName, NotFound, CannotProceed, org.omg.CosNaming.NamingContextPackage.InvalidName {
-    
+    public static Operaciones getObj() {
+      return objeto;
+    }
+
+    public static Operaciones ObjRemoto(String[] args) throws InvalidName, NotFound, CannotProceed, org.omg.CosNaming.NamingContextPackage.InvalidName {
+
+        LogeoAministardor lo=new LogeoAministardor();
+        lo.setVisible(true);
+        System.out.println("fdssrs");
         ORB orb=ORB.init(args,null);
         org.omg.CORBA.Object objRef=orb.resolve_initial_references("NameService");
         NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
         
-          Operaciones  objeto=OperacionesHelper.narrow(ncRef.resolve_str(nombre));
+          Operaciones objeto2=OperacionesHelper.narrow(ncRef.resolve_str("cajero"));
 
-          return objeto;
+          return objeto2;
     }
 
     public static void main(String[] args) throws InvalidName, NotFound, CannotProceed, org.omg.CosNaming.NamingContextPackage.InvalidName {
 
-        System.out.println(new ObjRemoto().ObjRemoto("admin",args));
-        
+        objeto=ObjRemoto(args);
+        System.out.println(objeto.consultarAdmin("admin", "admin"));
+ objeto.mensaje("admin");
     }
 
 }

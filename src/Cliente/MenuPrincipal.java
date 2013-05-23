@@ -45,7 +45,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         cmdconsultar = new javax.swing.JButton();
         cmdretirar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        btn_aniadir = new javax.swing.JButton();
         txt_nombreUsuario = new javax.swing.JLabel();
         txt_cerrarSesion = new javax.swing.JButton();
 
@@ -67,13 +66,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jLabel1.setText("Bienvenido :");
 
-        btn_aniadir.setText("Agregar Efectivo");
-        btn_aniadir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_aniadirActionPerformed(evt);
-            }
-        });
-
         txt_nombreUsuario.setText("nombre del usuario");
 
         txt_cerrarSesion.setText("Cerrar Cesion");
@@ -93,20 +85,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
                         .addGap(147, 147, 147)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(cmdconsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(cmdretirar, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(261, 261, 261)
                         .addComponent(txt_nombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(btn_aniadir, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(315, 315, 315)
-                        .addComponent(txt_cerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txt_cerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(cmdretirar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cmdconsultar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE))))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -116,13 +104,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txt_nombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
+                .addGap(54, 54, 54)
                 .addComponent(cmdconsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
-                .addComponent(cmdretirar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(btn_aniadir, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
+                .addComponent(cmdretirar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
                 .addComponent(txt_cerrarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -162,22 +148,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
        this.setVisible(false);
     }//GEN-LAST:event_cmdretirarActionPerformed
 
-    private void btn_aniadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_aniadirActionPerformed
-        this.setVisible(false);
-        Aniadir x = new Aniadir();
-        try {
-            x.main(args);
-        } catch (InvalidName ex) {
-            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (NotFound ex) {
-            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (CannotProceed ex) {
-            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (org.omg.CosNaming.NamingContextPackage.InvalidName ex) {
-            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_btn_aniadirActionPerformed
-
     private void txt_cerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cerrarSesionActionPerformed
          System.exit(0);
     }//GEN-LAST:event_txt_cerrarSesionActionPerformed
@@ -194,7 +164,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_aniadir;
     private javax.swing.JButton cmdconsultar;
     private javax.swing.JButton cmdretirar;
     private javax.swing.JLabel jLabel1;

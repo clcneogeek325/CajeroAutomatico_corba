@@ -28,25 +28,20 @@
                       <EmptySpace min="147" pref="147" max="147" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="73" pref="73" max="73" attributes="0"/>
-                      <Component id="cmdconsultar" min="-2" pref="320" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="70" pref="70" max="70" attributes="0"/>
-                      <Component id="cmdretirar" min="-2" pref="320" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="261" max="-2" attributes="0"/>
                       <Component id="txt_nombreUsuario" min="-2" pref="171" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                      <Component id="btn_aniadir" min="-2" pref="320" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="315" max="-2" attributes="0"/>
                       <Component id="txt_cerrarSesion" min="-2" pref="142" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="cmdretirar" alignment="0" max="32767" attributes="1"/>
+                          <Component id="cmdconsultar" alignment="0" pref="320" max="32767" attributes="1"/>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace pref="22" max="32767" attributes="0"/>
@@ -61,13 +56,11 @@
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txt_nombreUsuario" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="12" pref="12" max="12" attributes="0"/>
+              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
               <Component id="cmdconsultar" min="-2" pref="60" max="-2" attributes="0"/>
-              <EmptySpace min="21" pref="21" max="21" attributes="0"/>
-              <Component id="cmdretirar" min="-2" pref="50" max="-2" attributes="0"/>
-              <EmptySpace min="20" pref="20" max="20" attributes="0"/>
-              <Component id="btn_aniadir" min="-2" pref="60" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="cmdretirar" min="-2" pref="71" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Component id="txt_cerrarSesion" pref="53" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -95,14 +88,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Bienvenido :"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btn_aniadir">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Agregar Efectivo"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_aniadirActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="txt_nombreUsuario">
       <Properties>

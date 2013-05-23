@@ -8,7 +8,11 @@ module OperacionesCajero{
 	        
 	        long  consultar(in string id_usuario );
 	        
+	         boolean  consultarAdmin(in string nombreUsuario,in string contrasenia );
+	        
 	        void mensaje(in string nombreUsuario);
+	        
+	        string regristrar(in string nombre,in string apellidos,in string direccion,in string nombreCuenta,in string saldoInicial, in string nip);
 	};
 	
 };
